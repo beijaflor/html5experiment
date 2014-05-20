@@ -7,6 +7,16 @@
 	<body style="text-align:center;">
 	<h1>canvas experiment</h1>
 	<audio src="sample.mp3" controls id="experiment"></audio>
+	<fieldset>
+		<label>ボリューム
+			<input type="range" min="0" max="100" step="1" id="volume">
+		</label>
+		<label>スピード
+			<input type="range" min="0" max="100" step="1" id="playspeed">
+		</label>
+		<button id="play">play</button>
+		<button id="pause">pause</button>
+	</fieldset>
 
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script>
@@ -15,7 +25,13 @@
 			console.log('Yo-Ho!');
 
 			var audio = $('#experiment')[0];
-			audio.play();
+
+			$('#play').on('click', function() {
+				audio.play();
+			});
+			$('#pause').on('click', function() {
+				audio.pause();
+			});
 
 		});
 	</script>
