@@ -17,10 +17,18 @@
 			x2 = 280;
 			y1 = 20;
 			y2 = 280;
+			r = 255;
+			g = 0;
+			b = 0;
 
 			var canvas = $('#experiment')[0];
 			var c = canvas.getContext('2d');
-			drawLine(c, x1, x2, y1, y2, "#f00");
+			setInterval(function() {
+				x1 = x1 + 1;
+				x2 = x2 - 1;
+				g = g + 1;
+				drawLine(c, x1, x2, y1, y2, makeColorCode(r,g,b));
+			}, 10);
 
 			function drawLine(ctx, x1, x2, y1, y2, color) {
 				var LINE_WIDTH = "0.3";
@@ -32,6 +40,13 @@
 				ctx.lineTo(x2, y2);
 				ctx.closePath();
 				ctx.stroke();
+			}
+
+			function makeColorCode(r, g, b) {
+				r = ( r < 16 ) ? '0' + r.toString(16) : r.toString(16);
+				g = ( g < 16 ) ? '0' + g.toString(16) : g.toString(16);
+				b = ( b < 16 ) ? '0' + b.toString(16) : b.toString(16);
+				return "#" + r + g + b;
 			}
 
 		});
