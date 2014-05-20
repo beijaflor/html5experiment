@@ -11,22 +11,118 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script>
 		$(function() {
+			"use strict";
 			console.log('Yo-Ho!');
-			var x1, x2, y1, y2;
+
+			var SIZE = 300;
+			var x1, x2, y1, y2, inc, r, g, b;
 			x1 = 20;
 			x2 = 280;
 			y1 = 20;
 			y2 = 280;
-			r = 255;
-			g = 0;
-			b = 0;
+			r = 150;
+			g = 150;
+			b = 150;
+			inc = {
+				x1: false,
+				x2: false,
+				y1: false,
+				y2: false,
+				r: false,
+				g: false,
+				b: false,
+			}
+			inc['x1'] = getIncriments();
+			inc['x2'] = getIncriments();
+			inc['y1'] = getIncriments();
+			inc['y2'] = getIncriments();
+			inc['r'] = getColorOffset();
+			inc['g'] = getColorOffset();
+			inc['b'] = getColorOffset();
 
 			var canvas = $('#experiment')[0];
 			var c = canvas.getContext('2d');
+
 			setInterval(function() {
-				x1 = x1 + 1;
-				x2 = x2 - 1;
-				g = g + 1;
+				x1 = x1 + inc['x1'];
+				x2 = x2 + inc['x2'];
+				y1 = y1 + inc['y1'];
+				y2 = y2 + inc['y2'];
+
+				r = r + inc['r'];
+				g = g + inc['g'];
+				b = b + inc['b'];
+
+				if( x1 < 0 ) {
+					x1 = 0;
+					inc['x1'] = getIncriments(true);
+				}
+
+				if( SIZE < x1 ) {
+					x1 = SIZE;
+					inc['x1'] = getIncriments(false);
+				}
+
+				if( x2 < 0 ) {
+					x2 = 0;
+					inc['x2'] = getIncriments(true);
+				}
+
+				if( SIZE < x2 ) {
+					x2 = SIZE;
+					inc['x2'] = getIncriments(false);
+				}
+
+				if( y1 < 0 ) {
+					y1 = 0;
+					inc['y1'] = getIncriments(true);
+				}
+
+				if( SIZE < y1 ) {
+					y1 = SIZE;
+					inc['y1'] = getIncriments(false);
+				}
+
+				if( y2 < 0 ) {
+					y2 = 0;
+					inc['y2'] = getIncriments(true);
+				}
+
+				if( SIZE < y2 ) {
+					y2 = SIZE;
+					inc['y2'] = getIncriments(false);
+				}
+
+				if( r < 0 ) {
+					r = 0;
+					inc['r'] = getColorOffset(true);
+				}
+
+				if( 255 < r ) {
+					r = 255;
+					inc['r'] = getColorOffset(false);
+				}
+
+				if( g < 0 ) {
+					g = 0;
+					inc['g'] = getColorOffset(true);
+				}
+
+				if( 255 < g ) {
+					g = 255;
+					inc['g'] = getColorOffset(false);
+				}
+
+				if( b < 0 ) {
+					b = 0;
+					inc['b'] = getColorOffset(true);
+				}
+
+				if( 255 < b ) {
+					b = 255;
+					inc['b'] = getColorOffset(false);
+				}
+
 				drawLine(c, x1, x2, y1, y2, makeColorCode(r,g,b));
 			}, 10);
 
@@ -47,6 +143,26 @@
 				g = ( g < 16 ) ? '0' + g.toString(16) : g.toString(16);
 				b = ( b < 16 ) ? '0' + b.toString(16) : b.toString(16);
 				return "#" + r + g + b;
+			}
+
+			function getRandom(max) {
+				return Math.random() * max;
+			}
+
+			function getIncriments(f) {
+				if(f) {
+					return getRandom(2) + 1;
+				} else {
+					return getRandom(2) - 3;
+				}
+			}
+
+			function getColorOffset(f) {
+				if(f) {
+					return Math.floor(getRandom(10) + 1);
+				} else {
+					return Math.floor(getRandom(10)) - 11;
+				}
 			}
 
 		});
