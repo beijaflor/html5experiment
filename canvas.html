@@ -20,14 +20,19 @@
 
 			var canvas = $('#experiment')[0];
 			var c = canvas.getContext('2d');
+			drawLine(c, x1, x2, y1, y2, "#f00");
 
-			c.strokeStyle = "#f00";
-			c.lineWidth = "0.3";
-			c.beginPath();
-			c.moveTo(x1, y1);
-			c.lineTo(x2, y2);
-			c.closePath();
-			c.stroke();
+			function drawLine(ctx, x1, x2, y1, y2, color) {
+				var LINE_WIDTH = "0.3";
+
+				ctx.strokeStyle = color;
+				ctx.lineWidth = LINE_WIDTH;
+				ctx.beginPath();
+				ctx.moveTo(x1, y1);
+				ctx.lineTo(x2, y2);
+				ctx.closePath();
+				ctx.stroke();
+			}
 
 		});
 	</script>
