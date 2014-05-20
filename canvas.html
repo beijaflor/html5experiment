@@ -4,9 +4,32 @@
 		<meta charset="UTF-8">
 		<title>html5 experiment "canvas"</title>
 	</head>
-	<body>
+	<body style="text-align:center;">
 	<h1>canvas experiment</h1>
-	<canvas id="experiment" width="300" height="300"></canvas>
+	<canvas id="experiment" width="300" height="300" style="border:solid 1px #999;"></canvas>
 
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script>
+		$(function() {
+			console.log('Yo-Ho!');
+			var x1, x2, y1, y2;
+			x1 = 20;
+			x2 = 280;
+			y1 = 20;
+			y2 = 280;
+
+			var canvas = $('#experiment')[0];
+			var c = canvas.getContext('2d');
+
+			c.strokeStyle = "#f00";
+			c.lineWidth = "0.3";
+			c.beginPath();
+			c.moveTo(x1, y1);
+			c.lineTo(x2, y2);
+			c.closePath();
+			c.stroke();
+
+		});
+	</script>
 	</body>
 </html>
