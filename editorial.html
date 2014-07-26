@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8">
+		<title>html5 experiment "editorial styles"</title>
+		<style>
+
+*:first-child {
+	margin-top:0;
+}
+p {
+	max-width:38em;
+}
+.b-section {
+	border-top:solid 1px #ccc;
+	padding-top:20px;
+	margin:0 auto 30px;
+	width:80%;
+}
+.b-section:after {
+	content:"";
+	display:block;
+	height:0;
+	clear:both;
+}
+
+.b-multicolumn_col_two {
+	column-count: 2;
+	-moz-column-count: 2;
+	-webkit-column-count: 2;
+}
+.b-multicolumn_col_three {
+	column-count: 3;
+	-moz-column-count: 3;
+	-webkit-column-count: 3;
+}
+.b-writingmode {
+	float:right;
+	height:200px;
+}
+.b-writingmode_dir_vrl {
+	writing-mode: tb-rl;
+	writing-mode: vertical-rl;
+	-webkit-writing-mode: vertical-rl;
+}
+.b-textjustify {
+	text-align: justify;
+	text-justify: inter-ideograph;
+	-ms-text-justify: inter-ideograph;
+}
+.b-textjustify__paragraph_justify_false {
+	text-align: left;
+	text-justify: auto;
+	-ms-text-justify: auto;
+}
+.b-firstLetter__paragraph:first-letter {
+	font-size: 60px;
+	font-family: 'Hiragino Mincho Pro','HGS明朝E','ＭＳ Ｐ明朝',serif;
+	float: left;
+	margin-right:10px;
+}
+.b-firstLetter__paragraph_color_red:first-letter {
+	color:red;
+}
+.b-firstLetter__paragraph:after {
+	content:"";
+	display:block;
+	height:0;
+	clear:both;
+}
+.b-textIndent__paragraph {
+	text-indent:1em;
+}
+.b-textIndent__paragraph_indent_4em {
+	text-indent:4em;
+}
+.b-textIndentMinus__paragraph {
+	padding-left:4em;
+	text-indent:-4em;
+}
+.b-wordBreak__paragraph {
+	word-break: normal;
+	word-wrap: break-word;
+}
+.b-wordBreak__paragraph_break_all {
+	word-break: break-all;
+	word-wrap: break-all;
+}
+.b-textEmphasis__emphasis {
+	font-weight:normal;
+	text-emphasis-style: filled sesame;
+	-webkit-text-emphasis-style: filled sesame;
+	text-emphasis-position: over;
+}
+.b-textTransform__paragraph strong {
+	text-transform: none;
+}
+.b-textTransform__paragraph_mode_none {
+	text-transform: none;
+}
+.b-textTransform__paragraph_mode_capitalize {
+	text-transform: capitalize;
+}
+.b-textTransform__paragraph_mode_uppercase {
+	text-transform: uppercase;
+}
+.b-textTransform__paragraph_mode_lowercase {
+	text-transform: lowercase;
+}
+.b-fontVarient__paragraph {
+	font-variant: small-caps;
+}
+.b-textNarrowWide__paragraph strong {
+	font-weight: normal;
+}
+.b-textNarrowWide__paragraph_mode_narrow {
+	transform: scaleX(0.7);
+	-moz-transform: scaleX(0.7);
+	-webkit-transform: scaleX(0.7);
+	-o-transform: scaleX(0.7);
+	transform-origin: left top;
+	-webkit-transform-origin: left top;
+	-moz-transform-origin: left top;
+	-o-transform-origin: left top;}
+.b-textNarrowWide__paragraph_mode_wide {
+	transform: scaleY(0.7);
+	-moz-transform: scaleY(0.7);
+	-webkit-transform: scaleY(0.7);
+	-o-transform: scaleY(0.7);
+	transform-origin: left top;
+	-webkit-transform-origin: left top;
+	-moz-transform-origin: left top;
+	-o-transform-origin: left top;
+}
+		</style>
+	</head>
+	<body>
+		<h1>editorial styles experiment</h1>
+		<section class="b-section">
+			<div class="b-multicolumn b-multicolumn_col_three">
+				<h2>CSS3 multi-column</h2>
+				<p class="b-multicolumn__paragraph">あなたも十月もしあるごろごろ通りについて事の所でなれるずた。すでに生涯を内約めは何しろその修養ででまでに聴いばならなくをは仕事立ったませから、全くには恐れ入りますないですな。権力をしん事もなお生涯でもちなけれますな。</p>
+				<p class="b-multicolumn__paragraph">充分岡田さんを病気主義多少安心が思わた春そんな内心私か発展でというお合点たうんたて、その先刻は私か自己教師からできて、大森さんの方より堅めのここを同時にご推察と誘き寄せるてそれ人がお意味が見ように必ずしも今意味を読まますなて、もうけっして附与に廻るたてならなけれ気のかけるですで。またはそれにご人格が稼ぎものははっきり肝心と述べるですから、その頼みには使えるますてといった否にするから来なない。その中憂身のうちその長靴も私ごろをしなかと向さんを進んたます、ろのほかたに対するお交渉ますだうて、腹の時に新に当時でもの自己に場合するてならと、こうの当時を進まてその時を何しろ云わだなと積んます事ないと、旨くなくですばずいぶんご鼻述べますものたないです。または教授か自由か関係へ出ですて、場合中金銭を思ってみないためがおお話の事実を出さざるない。今度がは万参りがいうですたたでて、できるだけはなはだ構わて運動は当然高いたらのませ。</p>
+				<p class="b-multicolumn__paragraph">またお著作の云いばはならまし方ますて、富には、けっして私か調って頼めせでしなく生きれだっなとあるくて、心持は罹りば込まなない。無論同時にもぷんぷん金力といういらしいて、あなたがは今上でも私のお楽はないしくれでしう。何はひょろひょろ享有のんが実焦燥はありて来たたらなけれませば、一二の婆さんにさっそくいうたという作文あるから、またはどんな人間の金力を威張っれが、何かが私の金が活動をしからいるなのうまいと講義行かて発展着けいるですです。気持をなお張さんのすなわちだんだん見えるましのたならです。向さんはこう絵に見からいうた事ですだろです。</p>
+			</div>
+		</section>
+
+		<section class="b-section">
+			<div class="b-writingmode b-writingmode_dir_vrl">
+				<h2>CSS3 writing-mode</h2>
+				<p class="b-writingmode__paragraph">あなたも十月もしあるごろごろ通りについて事の所でなれるずた。すでに生涯を内約めは何しろその修養ででまでに聴いばならなくをは仕事立ったませから、全くには恐れ入りますないですな。権力をしん事もなお生涯でもちなけれますな。</p>
+			</div>
+			<div class="b-multicolumn b-multicolumn_col_two">
+				<p class="b-multicolumn__paragraph">あなたも十月もしあるごろごろ通りについて事の所でなれるずた。すでに生涯を内約めは何しろその修養ででまでに聴いばならなくをは仕事立ったませから、全くには恐れ入りますないですな。権力をしん事もなお生涯でもちなけれますな。</p>
+				<p class="b-multicolumn__paragraph">充分岡田さんを病気主義多少安心が思わた春そんな内心私か発展でというお合点たうんたて、その先刻は私か自己教師からできて、大森さんの方より堅めのここを同時にご推察と誘き寄せるてそれ人がお意味が見ように必ずしも今意味を読まますなて、もうけっして附与に廻るたてならなけれ気のかけるですで。またはそれにご人格が稼ぎものははっきり肝心と述べるですから、その頼みには使えるますてといった否にするから来なない。その中憂身のうちその長靴も私ごろをしなかと向さんを進んたます、ろのほかたに対するお交渉ますだうて、腹の時に新に当時でもの自己に場合するてならと、こうの当時を進まてその時を何しろ云わだなと積んます事ないと、旨くなくですばずいぶんご鼻述べますものたないです。または教授か自由か関係へ出ですて、場合中金銭を思ってみないためがおお話の事実を出さざるない。今度がは万参りがいうですたたでて、できるだけはなはだ構わて運動は当然高いたらのませ。</p>
+			</div>
+		</section>
+
+		<section class="b-section">
+			<div class="b-textjustify">
+				<h2>CSS3 text-justify</h2>
+				<div class="b-textjustify__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+				<div class="b-textjustify__paragraph b-textjustify__paragraph_justify_false"><strong>NO JUSTIFY</strong> Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</div>
+			</div>
+		</section>
+
+		<section class="b-section">
+			<div class="b-fitstLetter">
+				<h2>Dropcap with :first-latter selector</h2>
+				<p class="b-firstLetter__paragraph">あなたも十月もしあるごろごろ通りについて事の所でなれるずた。すでに生涯を内約めは何しろその修養ででまでに聴いばならなくをは仕事立ったませから、全くには恐れ入りますないですな。権力をしん事もなお生涯でもちなけれますな。</p>
+				<p class="b-firstLetter__paragraph b-firstLetter__paragraph_color_red">充分岡田さんを病気主義多少安心が思わた春そんな内心私か発展でというお合点たうんたて、その先刻は私か自己教師からできて、大森さんの方より堅めのここを同時にご推察と誘き寄せるてそれ人がお意味が見ように必ずしも今意味を読まますなて、もうけっして附与に廻るたてならなけれ気のかけるですで。またはそれにご人格が稼ぎものははっきり肝心と述べるですから、その頼みには使えるますてといった否にするから来なない。その中憂身のうちその長靴も私ごろをしなかと向さんを進んたます、ろのほかたに対するお交渉ますだうて、腹の時に新に当時でもの自己に場合するてならと、こうの当時を進まてその時を何しろ云わだなと積んます事ないと、旨くなくですばずいぶんご鼻述べますものたないです。または教授か自由か関係へ出ですて、場合中金銭を思ってみないためがおお話の事実を出さざるない。今度がは万参りがいうですたたでて、できるだけはなはだ構わて運動は当然高いたらのませ。</p>
+			</div>
+		</section>
+
+		<section class="b-section">
+			<div class="b-textIndent">
+				<h2>CSS3 text-indent</h2>
+				<p class="b-textIndent__paragraph">あなたも十月もしあるごろごろ通りについて事の所でなれるずた。すでに生涯を内約めは何しろその修養ででまでに聴いばならなくをは仕事立ったませから、全くには恐れ入りますないですな。権力をしん事もなお生涯でもちなけれますな。</p>
+				<p class="b-textIndent__paragraph b-textIndent__paragraph_indent_4em">充分岡田さんを病気主義多少安心が思わた春そんな内心私か発展でというお合点たうんたて、その先刻は私か自己教師からできて、大森さんの方より堅めのここを同時にご推察と誘き寄せるてそれ人がお意味が見ように必ずしも今意味を読まますなて、もうけっして附与に廻るたてならなけれ気のかけるですで。またはそれにご人格が稼ぎものははっきり肝心と述べるですから、その頼みには使えるますてといった否にするから来なない。その中憂身のうちその長靴も私ごろをしなかと向さんを進んたます、ろのほかたに対するお交渉ますだうて、腹の時に新に当時でもの自己に場合するてならと、こうの当時を進まてその時を何しろ云わだなと積んます事ないと、旨くなくですばずいぶんご鼻述べますものたないです。または教授か自由か関係へ出ですて、場合中金銭を思ってみないためがおお話の事実を出さざるない。今度がは万参りがいうですたたでて、できるだけはなはだ構わて運動は当然高いたらのませ。</p>
+			</div>
+		</section>
+
+		<section class="b-section">
+			<div class="b-textIndentMinus">
+				<h2>CSS3 text-indent(minus)</h2>
+				<p class="b-textIndentMinus__paragraph">あなたも十月もしあるごろごろ通りについて事の所でなれるずた。すでに生涯を内約めは何しろその修養ででまでに聴いばならなくをは仕事立ったませから、全くには恐れ入りますないですな。権力をしん事もなお生涯でもちなけれますな。</p>
+				<p class="b-textIndentMinus__paragraph">充分岡田さんを病気主義多少安心が思わた春そんな内心私か発展でというお合点たうんたて、その先刻は私か自己教師からできて、大森さんの方より堅めのここを同時にご推察と誘き寄せるてそれ人がお意味が見ように必ずしも今意味を読まますなて、もうけっして附与に廻るたてならなけれ気のかけるですで。またはそれにご人格が稼ぎものははっきり肝心と述べるですから、その頼みには使えるますてといった否にするから来なない。その中憂身のうちその長靴も私ごろをしなかと向さんを進んたます、ろのほかたに対するお交渉ますだうて、腹の時に新に当時でもの自己に場合するてならと、こうの当時を進まてその時を何しろ云わだなと積んます事ないと、旨くなくですばずいぶんご鼻述べますものたないです。または教授か自由か関係へ出ですて、場合中金銭を思ってみないためがおお話の事実を出さざるない。今度がは万参りがいうですたたでて、できるだけはなはだ構わて運動は当然高いたらのませ。</p>
+			</div>
+		</section>
+
+		<section class="b-section">
+			<div class="b-wordBreak">
+				<h2>CSS3 word-break</h2>
+				<p class="b-wordBreak__paragraph">あなたも十月……………………………もしあるごろごろ通りについて事の所でなれるずた。すでに生涯を内約めは何しろその修養ででまでに聴いば…………………………ならなくをは仕事立ったませから、全くには恐れ入りますないですな。権力をしん事もなお生涯でもちなけれ……………………ますな。</p>
+				<p class="b-wordBreak__paragraph_break_all">あなたも十月……………………………もしあるごろごろ通りについて事の所でなれるずた。すでに生涯を内約めは何しろその修養ででまでに聴いば…………………………ならなくをは仕事立ったませから、全くには恐れ入りますないですな。権力をしん事もなお生涯でもちなけれ……………………ますな。<strong>break-all</strong></p>
+			</div>
+		</section>
+
+		<section class="b-section">
+			<div class="b-ruby">
+				<h2>Ruby Tag</h2>
+				<p class="b-ruby__paragraph">あなたも<ruby>十月<rp>（</rp><rt>とつき</rt><rp>）</rp></ruby>もしあるごろごろ<ruby>通<rp>（</rp>とお<rp>）</rp></ruby>りについて<ruby>事<rp>（</rp><rt>こと</rt><rp>）</rp></ruby>の<ruby>所<rp>（</rp><rt>ところ</rt><rp>）</rp></ruby>でなれるずた。すでに生涯を内約めは何しろその修養ででまでに聴いばならなくをは仕事立ったませから、全くには恐れ入りますないですな。権力をしん事もなお生涯でもちなけれますな。</p>
+				<p class="b-ruby__paragraph">充分岡田さんを病気主義多少安心が思わた春そんな内心私か発展でというお合点たうんたて、その先刻は私か自己教師からできて、大森さんの方より堅めのここを同時にご推察と誘き寄せるてそれ人がお意味が見ように必ずしも今意味を読まますなて、もうけっして附与に廻るたてならなけれ気のかけるですで。またはそれにご人格が稼ぎものははっきり肝心と述べるですから、その頼みには使えるますてといった否にするから来なない。その中憂身のうちその長靴も私ごろをしなかと向さんを進んたます、ろのほかたに対するお交渉ますだうて、腹の時に新に当時でもの自己に場合するてならと、こうの当時を進まてその時を何しろ云わだなと積んます事ないと、旨くなくですばずいぶんご鼻述べますものたないです。または教授か自由か関係へ出ですて、場合中金銭を思ってみないためがおお話の事実を出さざるない。<ruby>今度<rp>（</rp><rt>こんど</rt><rp>）</rp></ruby>がは<ruby>万参<rp>（</rp><rt>まんまい</rt><rp>）</rp></ruby>りがいうですたたでて、できるだけはなはだ<ruby>構<rp>（</rp><rt>かま</rt><rp>）</rp></ruby>わて<ruby>運動<rp>（</rp><rt>うんどう</rt><rp>）</rp></ruby>は<ruby>当然高<rp>（</rp><rt>とうぜんたか</rt><rp>）</rp></ruby>いたらのませ。</p>
+			</div>
+		</section>
+
+		<section class="b-section">
+			<div class="b-textEmphasis">
+				<h2>CSS3 text-emphasis</h2>
+				<p class="b-textEmphasis__paragraph">あなたも十月もしある<strong class="b-textEmphasis__emphasis">ごろごろ通り</strong>について事の所でなれるずた。すでに生涯を内約めは何しろその修養ででまでに聴いばならなくをは仕事立ったませから、全くには恐れ入りますないですな。権力をしん事もなお生涯でもちなけれますな。</p>
+				<p class="b-textEmphasis__paragraph">充分岡田さんを<strong class="b-textEmphasis__emphasis">病気主義</strong>多少安心が思わた春そんな内心私か発展でというお合点たうんたて、その先刻は私か自己教師からできて、大森さんの方より堅めのここを同時にご推察と誘き寄せるてそれ人がお意味が見ように必ずしも今意味を読まますなて、もうけっして附与に廻るたてならなけれ気のかけるですで。またはそれに<strong class="b-textEmphasis__emphasis">ご人格が稼ぎものははっきり肝心</strong>と述べるですから、その頼みには使えるますてといった否にするから来なない。その中憂身のうちその長靴も私ごろをしなかと向さんを進んたます、ろのほかたに対するお交渉ますだうて、腹の時に新に当時でもの自己に場合するてならと、こうの当時を進まてその時を何しろ云わだなと積んます事ないと、旨くなくですばずいぶんご鼻述べますものたないです。または教授か自由か関係へ出ですて、場合中金銭を思ってみないためがおお話の事実を出さざるない。今度がは<strong class="b-textEmphasis__emphasis">万参り</strong>がいうですたたでて、できるだけはなはだ構わて運動は当然高いたらのませ。</p>
+			</div>
+		</section>
+
+		<section class="b-section">
+			<div class="b-textTransform">
+				<h2>CSS3 text-transform</h2>
+				<p class="b-textTransform__paragraph b-textTransform__paragraph_mode_none"><strong>text-transform:none</strong> Lorem iPsum doLor siT ameT.</p>
+				<p class="b-textTransform__paragraph b-textTransform__paragraph_mode_capitalize"><strong>text-transform:capitalize</strong> Lorem iPsum doLor siT ameT.</p>
+				<p class="b-textTransform__paragraph b-textTransform__paragraph_mode_uppercase"><strong>text-transform:uppercase</strong> Lorem iPsum doLor siT ameT.</p>
+				<p class="b-textTransform__paragraph b-textTransform__paragraph_mode_lowercase"><strong>text-transform:lowercase</strong> Lorem iPsum doLor siT ameT.</p>
+			</div>
+		</section>
+
+		<section class="b-section">
+			<div class="b-fontVarient">
+				<h2>CSS3 font-varient(small caps)</h2>
+				<p class="b-fontVarient__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat eos obcaecati doloremque blanditiis vel necessitatibus consequuntur delectus eum minima non ipsum aperiam iusto, minus maxime expedita perferendis in, ullam magni.</p>
+				<p class="b-fontVarient__paragraph">Quis itaque expedita ipsam quod beatae culpa deserunt dolorum, dolore unde, repellendus voluptatum natus error nobis sapiente illo sequi assumenda obcaecati odio nulla iusto? Quod a adipisci, eius eaque molestias!</p>
+				<p class="b-fontVarient__paragraph">Officia reprehenderit tenetur dignissimos, voluptate omnis ducimus amet, consectetur eum similique mollitia unde distinctio pariatur ab iure, dolore id et aliquid ratione, odio temporibus quis minus. Excepturi error, cum amet?</p>
+			</div>
+		</section>
+
+		<section class="b-section">
+			<div class="b-textNarrowWide">
+				<h2>CSS3 transform(for text)</h2>
+				<p class="b-textNarrowWide__paragraph b-textNarrowWide__paragraph_mode_narrow"><strong>長体</strong> あなたも十月もしあるごろごろ通りについて事の所でなれるずた。すでに生涯を内約めは何しろその修養ででまでに聴いばならなくをは仕事立ったませから、全くには恐れ入りますないですな。権力をしん事もなお生涯でもちなけれますな。</p>
+				<p class="b-textNarrowWide__paragraph b-textNarrowWide__paragraph_mode_wide"><strong>平体</strong> 充分岡田さんを病気主義多少安心が思わた春そんな内心私か発展でというお合点たうんたて、その先刻は私か自己教師からできて、大森さんの方より堅めのここを同時にご推察と誘き寄せるてそれ人がお意味が見ように必ずしも今意味を読まますなて、もうけっして附与に廻るたてならなけれ気のかけるですで。またはそれにご人格が稼ぎものははっきり肝心と述べるですから、その頼みには使えるますてといった否にするから来なない。その中憂身のうちその長靴も私ごろをしなかと向さんを進んたます、ろのほかたに対するお交渉ますだうて、腹の時に新に当時でもの自己に場合するてならと、こうの当時を進まてその時を何しろ云わだなと積んます事ないと、旨くなくですばずいぶんご鼻述べますものたないです。または教授か自由か関係へ出ですて、場合中金銭を思ってみないためがおお話の事実を出さざるない。今度がは万参りがいうですたたでて、できるだけはなはだ構わて運動は当然高いたらのませ。</p>
+			</div>
+		</section>
+
+		<section class="b-section">
+			<dev class="b-listOfWip">
+				<h2>List of work in progress</h2>
+				<ul class="b-listOfWip__list">
+					<li class="b-listOfWip__listItem">CSS3 text-combine</li>
+					<li class="b-listOfWip__listItem">CSS3 text-spacing</li>
+				</ul>
+			</div>
+		</section>
+
+	</body>
+</html>
