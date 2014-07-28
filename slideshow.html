@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8">
+		<title>html5 experiment "audio"</title>
+		<style>
+
+header {
+	text-align: right;
+	padding:10px 20px;
+	background:rgba(255,255,255,0.5);
+	margin-bottom:20px;
+}
+a {
+	color:#333;
+}
+a:hover {
+	color:#555;
+}
+h1 {
+	margin:0 0 8px;
+}
+h2 {
+	margin: 0;
+	padding: 0;
+}
+header ul {
+	font-size:12px;
+	list-style:none;
+}
+html {
+	height:100%;
+}
+ul, li, p {
+	padding:0;
+	margin:0;
+	list-style: none;
+}
+body {
+	background:url(bg/02.jpg) 50% bottom;
+	background-size: 100% auto;
+	height:100%;
+}
+
+.b-slideMenu {
+	width:600px;
+	height:400px;
+	position:relative;
+	margin:0 auto;
+	border:solid 20px #fff;
+	box-shadow:1px 1px 3px rgba(0,0,0,0.1);
+}
+.b-slideMenu__title {
+	position:absolute;
+	right:0;
+	top:20px;
+	background:rgba(255,200,200,0.6);
+	z-index: 100;
+	font-size:80%;
+	padding:5px 10px;
+	opacity:0;
+	-webkit-transition: opacity 0.5s linear;
+	transition: opacity 0.5s linear;
+}
+.b-slideMenu_transition_type1 .b-slideMenu__title_header1,
+.b-slideMenu_transition_type2 .b-slideMenu__title_header2,
+.b-slideMenu_transition_type3 .b-slideMenu__title_header3,
+.b-slideMenu_transition_type4 .b-slideMenu__title_header4 {
+	opacity:1;
+}
+.b-slideMenu__stage {
+	background:white;
+	width:600px;
+	height:400px;
+	position:absolute;
+	left:0;
+	top:0;
+	z-index: 1;
+	background-repeat:no-repeat;
+	background-position: 0 0;
+	transform: translateZ(0)
+}
+.b-slideMenu__stage ul {
+	height:100%;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.b-slideMenu__stage li {
+	width:150px;
+	height:100%;
+	position:relative;
+	float:left;
+	overflow:hidden;
+	background-repeat: no-repeat;
+}
+.b-slideMenu__slice {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: 2;
+	background-size: auto 400px;
+}
+.b-slideMenu__slice:nth-child(1)  {
+	background-image:url(sample/1.jpg);
+}
+.b-slideMenu__slice:nth-child(2)  {
+	background-image:url(sample/2.jpg);
+}
+.b-slideMenu__slice:nth-child(3)  {
+	background-image:url(sample/3.jpg);
+}
+.b-slideMenu__slice:nth-child(4)  {
+	background-image:url(sample/4.jpg);
+}
+li:nth-child(1) .b-slideMenu__slice {
+	background-position: 0 0;
+}
+li:nth-child(2) .b-slideMenu__slice {
+	background-position: -150px 0;
+}
+li:nth-child(3) .b-slideMenu__slice {
+	background-position: -300px 0;
+}
+li:nth-child(4) .b-slideMenu__slice {
+	background-position: -450px 0;
+}
+/* Transition Type1 left to right */
+
+.b-slideMenu_transition_type1 .b-slideMenu__slice {
+	left:-150px;
+	top:0;
+}
+.b-slideMenu_transition_type1 .b-slideMenu__stage_slide_slide1 .b-slideMenu__slice:nth-child(1),
+.b-slideMenu_transition_type1 .b-slideMenu__stage_slide_slide2 .b-slideMenu__slice:nth-child(2),
+.b-slideMenu_transition_type1 .b-slideMenu__stage_slide_slide3 .b-slideMenu__slice:nth-child(3),
+.b-slideMenu_transition_type1 .b-slideMenu__stage_slide_slide4 .b-slideMenu__slice:nth-child(4) {
+	transition:left .5s ease-in-out;
+	animation:none;
+	left:0;
+	z-index:10;
+}
+.b-slideMenu_transition_type1 .b-slideMenu__stage_slide_slide1 .b-slideMenu__slice:nth-child(2),
+.b-slideMenu_transition_type1 .b-slideMenu__stage_slide_slide1 .b-slideMenu__slice:nth-child(3),
+.b-slideMenu_transition_type1 .b-slideMenu__stage_slide_slide1 .b-slideMenu__slice:nth-child(4),
+.b-slideMenu_transition_type1 .b-slideMenu__stage_slide_slide2 .b-slideMenu__slice:nth-child(1),
+.b-slideMenu_transition_type1 .b-slideMenu__stage_slide_slide2 .b-slideMenu__slice:nth-child(3),
+.b-slideMenu_transition_type1 .b-slideMenu__stage_slide_slide2 .b-slideMenu__slice:nth-child(4),
+.b-slideMenu_transition_type1 .b-slideMenu__stage_slide_slide3 .b-slideMenu__slice:nth-child(1),
+.b-slideMenu_transition_type1 .b-slideMenu__stage_slide_slide3 .b-slideMenu__slice:nth-child(2),
+.b-slideMenu_transition_type1 .b-slideMenu__stage_slide_slide3 .b-slideMenu__slice:nth-child(4),
+.b-slideMenu_transition_type1 .b-slideMenu__stage_slide_slide4 .b-slideMenu__slice:nth-child(1),
+.b-slideMenu_transition_type1 .b-slideMenu__stage_slide_slide4 .b-slideMenu__slice:nth-child(2),
+.b-slideMenu_transition_type1 .b-slideMenu__stage_slide_slide4 .b-slideMenu__slice:nth-child(3) {
+	-webkit-animation: slideOut .6s ease-in-out;
+	animation: slideOut .6s ease-in-out;
+}
+/* Transition Type2 odd/even slide to left/right */
+.b-slideMenu_transition_type2 li:nth-child(2n) .b-slideMenu__slice {
+	left:150px;
+	top:0;
+}
+.b-slideMenu_transition_type2 li:nth-child(2n+1) .b-slideMenu__slice {
+	left:-150px;
+	top:0;
+}
+.b-slideMenu_transition_type2 .b-slideMenu__stage_slide_slide1 .b-slideMenu__slice:nth-child(1),
+.b-slideMenu_transition_type2 .b-slideMenu__stage_slide_slide2 .b-slideMenu__slice:nth-child(2),
+.b-slideMenu_transition_type2 .b-slideMenu__stage_slide_slide3 .b-slideMenu__slice:nth-child(3),
+.b-slideMenu_transition_type2 .b-slideMenu__stage_slide_slide4 .b-slideMenu__slice:nth-child(4) {
+	transition:left .5s ease-in-out;
+	animation:none;
+	left:0;
+	z-index:10;
+}
+.b-slideMenu_transition_type2 .b-slideMenu__stage_slide_slide1 li:nth-child(2n) .b-slideMenu__slice:nth-child(2),
+.b-slideMenu_transition_type2 .b-slideMenu__stage_slide_slide1 li:nth-child(2n) .b-slideMenu__slice:nth-child(3),
+.b-slideMenu_transition_type2 .b-slideMenu__stage_slide_slide1 li:nth-child(2n) .b-slideMenu__slice:nth-child(4),
+.b-slideMenu_transition_type2 .b-slideMenu__stage_slide_slide2 li:nth-child(2n) .b-slideMenu__slice:nth-child(1),
+.b-slideMenu_transition_type2 .b-slideMenu__stage_slide_slide2 li:nth-child(2n) .b-slideMenu__slice:nth-child(3),
+.b-slideMenu_transition_type2 .b-slideMenu__stage_slide_slide2 li:nth-child(2n) .b-slideMenu__slice:nth-child(4),
+.b-slideMenu_transition_type2 .b-slideMenu__stage_slide_slide3 li:nth-child(2n) .b-slideMenu__slice:nth-child(1),
+.b-slideMenu_transition_type2 .b-slideMenu__stage_slide_slide3 li:nth-child(2n) .b-slideMenu__slice:nth-child(2),
+.b-slideMenu_transition_type2 .b-slideMenu__stage_slide_slide3 li:nth-child(2n) .b-slideMenu__slice:nth-child(4),
+.b-slideMenu_transition_type2 .b-slideMenu__stage_slide_slide4 li:nth-child(2n) .b-slideMenu__slice:nth-child(1),
+.b-slideMenu_transition_type2 .b-slideMenu__stage_slide_slide4 li:nth-child(2n) .b-slideMenu__slice:nth-child(2),
+.b-slideMenu_transition_type2 .b-slideMenu__stage_slide_slide4 li:nth-child(2n) .b-slideMenu__slice:nth-child(3) {
+	-webkit-animation: slideOutLeft .6s ease-in-out;
+	animation: slideOutLeft .6s ease-in-out;
+}
+.b-slideMenu_transition_type2 .b-slideMenu__stage_slide_slide1 li:nth-child(2n+1) .b-slideMenu__slice:nth-child(2),
+.b-slideMenu_transition_type2 .b-slideMenu__stage_slide_slide1 li:nth-child(2n+1) .b-slideMenu__slice:nth-child(3),
+.b-slideMenu_transition_type2 .b-slideMenu__stage_slide_slide1 li:nth-child(2n+1) .b-slideMenu__slice:nth-child(4),
+.b-slideMenu_transition_type2 .b-slideMenu__stage_slide_slide2 li:nth-child(2n+1) .b-slideMenu__slice:nth-child(1),
+.b-slideMenu_transition_type2 .b-slideMenu__stage_slide_slide2 li:nth-child(2n+1) .b-slideMenu__slice:nth-child(3),
+.b-slideMenu_transition_type2 .b-slideMenu__stage_slide_slide2 li:nth-child(2n+1) .b-slideMenu__slice:nth-child(4),
+.b-slideMenu_transition_type2 .b-slideMenu__stage_slide_slide3 li:nth-child(2n+1) .b-slideMenu__slice:nth-child(1),
+.b-slideMenu_transition_type2 .b-slideMenu__stage_slide_slide3 li:nth-child(2n+1) .b-slideMenu__slice:nth-child(2),
+.b-slideMenu_transition_type2 .b-slideMenu__stage_slide_slide3 li:nth-child(2n+1) .b-slideMenu__slice:nth-child(4),
+.b-slideMenu_transition_type2 .b-slideMenu__stage_slide_slide4 li:nth-child(2n+1) .b-slideMenu__slice:nth-child(1),
+.b-slideMenu_transition_type2 .b-slideMenu__stage_slide_slide4 li:nth-child(2n+1) .b-slideMenu__slice:nth-child(2),
+.b-slideMenu_transition_type2 .b-slideMenu__stage_slide_slide4 li:nth-child(2n+1) .b-slideMenu__slice:nth-child(3) {
+	-webkit-animation: slideOut .6s ease-in-out;
+	animation: slideOut .6s ease-in-out;
+}
+/* Transition Type3 odd/even slide up/down */
+.b-slideMenu_transition_type3 li:nth-child(2n) .b-slideMenu__slice {
+	left:0;
+	top:400px;
+}
+.b-slideMenu_transition_type3 li:nth-child(2n+1) .b-slideMenu__slice {
+	left:0;
+	top:-400px;
+}
+.b-slideMenu_transition_type3 .b-slideMenu__stage_slide_slide1 .b-slideMenu__slice:nth-child(1),
+.b-slideMenu_transition_type3 .b-slideMenu__stage_slide_slide2 .b-slideMenu__slice:nth-child(2),
+.b-slideMenu_transition_type3 .b-slideMenu__stage_slide_slide3 .b-slideMenu__slice:nth-child(3),
+.b-slideMenu_transition_type3 .b-slideMenu__stage_slide_slide4 .b-slideMenu__slice:nth-child(4) {
+	transition:top .5s ease-in-out;
+	animation:none;
+	top:0;
+	z-index:10;
+}
+.b-slideMenu_transition_type3 .b-slideMenu__stage_slide_slide1 li:nth-child(2n) .b-slideMenu__slice:nth-child(2),
+.b-slideMenu_transition_type3 .b-slideMenu__stage_slide_slide1 li:nth-child(2n) .b-slideMenu__slice:nth-child(3),
+.b-slideMenu_transition_type3 .b-slideMenu__stage_slide_slide1 li:nth-child(2n) .b-slideMenu__slice:nth-child(4),
+.b-slideMenu_transition_type3 .b-slideMenu__stage_slide_slide2 li:nth-child(2n) .b-slideMenu__slice:nth-child(1),
+.b-slideMenu_transition_type3 .b-slideMenu__stage_slide_slide2 li:nth-child(2n) .b-slideMenu__slice:nth-child(3),
+.b-slideMenu_transition_type3 .b-slideMenu__stage_slide_slide2 li:nth-child(2n) .b-slideMenu__slice:nth-child(4),
+.b-slideMenu_transition_type3 .b-slideMenu__stage_slide_slide3 li:nth-child(2n) .b-slideMenu__slice:nth-child(1),
+.b-slideMenu_transition_type3 .b-slideMenu__stage_slide_slide3 li:nth-child(2n) .b-slideMenu__slice:nth-child(2),
+.b-slideMenu_transition_type3 .b-slideMenu__stage_slide_slide3 li:nth-child(2n) .b-slideMenu__slice:nth-child(4),
+.b-slideMenu_transition_type3 .b-slideMenu__stage_slide_slide4 li:nth-child(2n) .b-slideMenu__slice:nth-child(1),
+.b-slideMenu_transition_type3 .b-slideMenu__stage_slide_slide4 li:nth-child(2n) .b-slideMenu__slice:nth-child(2),
+.b-slideMenu_transition_type3 .b-slideMenu__stage_slide_slide4 li:nth-child(2n) .b-slideMenu__slice:nth-child(3) {
+	-webkit-animation: slideOutTop .6s ease-in-out;
+	animation: slideOutTop .6s ease-in-out;
+}
+.b-slideMenu_transition_type3 .b-slideMenu__stage_slide_slide1 li:nth-child(2n+1) .b-slideMenu__slice:nth-child(2),
+.b-slideMenu_transition_type3 .b-slideMenu__stage_slide_slide1 li:nth-child(2n+1) .b-slideMenu__slice:nth-child(3),
+.b-slideMenu_transition_type3 .b-slideMenu__stage_slide_slide1 li:nth-child(2n+1) .b-slideMenu__slice:nth-child(4),
+.b-slideMenu_transition_type3 .b-slideMenu__stage_slide_slide2 li:nth-child(2n+1) .b-slideMenu__slice:nth-child(1),
+.b-slideMenu_transition_type3 .b-slideMenu__stage_slide_slide2 li:nth-child(2n+1) .b-slideMenu__slice:nth-child(3),
+.b-slideMenu_transition_type3 .b-slideMenu__stage_slide_slide2 li:nth-child(2n+1) .b-slideMenu__slice:nth-child(4),
+.b-slideMenu_transition_type3 .b-slideMenu__stage_slide_slide3 li:nth-child(2n+1) .b-slideMenu__slice:nth-child(1),
+.b-slideMenu_transition_type3 .b-slideMenu__stage_slide_slide3 li:nth-child(2n+1) .b-slideMenu__slice:nth-child(2),
+.b-slideMenu_transition_type3 .b-slideMenu__stage_slide_slide3 li:nth-child(2n+1) .b-slideMenu__slice:nth-child(4),
+.b-slideMenu_transition_type3 .b-slideMenu__stage_slide_slide4 li:nth-child(2n+1) .b-slideMenu__slice:nth-child(1),
+.b-slideMenu_transition_type3 .b-slideMenu__stage_slide_slide4 li:nth-child(2n+1) .b-slideMenu__slice:nth-child(2),
+.b-slideMenu_transition_type3 .b-slideMenu__stage_slide_slide4 li:nth-child(2n+1) .b-slideMenu__slice:nth-child(3) {
+	-webkit-animation: slideOutBottom .6s ease-in-out;
+	animation: slideOutBottom .6s ease-in-out;
+}
+
+/* Transition Type4 scale up/down */
+
+.b-slideMenu_transition_type4 .b-slideMenu__slice {
+	left:0;
+	top:0;
+	-webkit-transform:scale(1.5);
+	transform:scale(1.5);
+	opacity: 0;
+}
+.b-slideMenu_transition_type4 .b-slideMenu__stage_slide_slide1 .b-slideMenu__slice:nth-child(1),
+.b-slideMenu_transition_type4 .b-slideMenu__stage_slide_slide2 .b-slideMenu__slice:nth-child(2),
+.b-slideMenu_transition_type4 .b-slideMenu__stage_slide_slide3 .b-slideMenu__slice:nth-child(3),
+.b-slideMenu_transition_type4 .b-slideMenu__stage_slide_slide4 .b-slideMenu__slice:nth-child(4) {
+	-webkit-transition: -webkit-transform 0.5s ease-in-out, opacity 0.5s ease-in-out, z-index 0s linear 0.6s;	animation:none;
+	transition: -webkit-transform 0.5s ease-in-out, opacity 0.5s ease-in-out, z-index 0s linear 0.6s;	-webkit-transform:scale(1);
+	-webkit-transform:scale(1);
+	transform:scale(1);
+	opacity:1;
+	z-index:10;
+}
+.b-slideMenu_transition_type4 .b-slideMenu__stage_slide_slide1 .b-slideMenu__slice:nth-child(2),
+.b-slideMenu_transition_type4 .b-slideMenu__stage_slide_slide1 .b-slideMenu__slice:nth-child(3),
+.b-slideMenu_transition_type4 .b-slideMenu__stage_slide_slide1 .b-slideMenu__slice:nth-child(4),
+.b-slideMenu_transition_type4 .b-slideMenu__stage_slide_slide2 .b-slideMenu__slice:nth-child(1),
+.b-slideMenu_transition_type4 .b-slideMenu__stage_slide_slide2 .b-slideMenu__slice:nth-child(3),
+.b-slideMenu_transition_type4 .b-slideMenu__stage_slide_slide2 .b-slideMenu__slice:nth-child(4),
+.b-slideMenu_transition_type4 .b-slideMenu__stage_slide_slide3 .b-slideMenu__slice:nth-child(1),
+.b-slideMenu_transition_type4 .b-slideMenu__stage_slide_slide3 .b-slideMenu__slice:nth-child(2),
+.b-slideMenu_transition_type4 .b-slideMenu__stage_slide_slide3 .b-slideMenu__slice:nth-child(4),
+.b-slideMenu_transition_type4 .b-slideMenu__stage_slide_slide4 .b-slideMenu__slice:nth-child(1),
+.b-slideMenu_transition_type4 .b-slideMenu__stage_slide_slide4 .b-slideMenu__slice:nth-child(2),
+.b-slideMenu_transition_type4 .b-slideMenu__stage_slide_slide4 .b-slideMenu__slice:nth-child(3) {
+	-webkit-animation: scaleOut .6s ease-in-out;
+	animation: scaleOut .6s ease-in-out;
+}
+
+@-webkit-keyframes slideOut{
+	0%{ left: 0px; }
+	100%{ left: 150px; }
+}
+@keyframes slideOut{
+	0%{ left: 0px; }
+	100%{ left: 150px; }
+}
+@-webkit-keyframes slideOutLeft{
+	0%{ left: 0px; }
+	100%{ left: -150px; }
+}
+@keyframes slideOutLeft{
+	0%{ left: 0px; }
+	100%{ left: -150px; }
+}
+@-webkit-keyframes slideOutTop{
+	0%{ top: 0px; }
+	100%{ top: -400px; }
+}
+@keyframes slideOutTop{
+	0%{ top: 0px; }
+	100%{ top: -400px; }
+}
+@-webkit-keyframes slideOutBottom{
+	0%{ top: 0px; }
+	100%{ top: 400px; }
+}
+@keyframes slideOutBottom{
+	0%{ top: 0px; }
+	100%{ top: 400px; }
+}
+@-webkit-keyframes scaleOut{
+	0%{ -webkit-transform: scale(1); opacity: 1; }
+	100%{ -webkit-transform: scale(1.5); opacity: 0; }
+}
+@keyframes scaleOut{
+	0%{ transform: scale(1); opacity: 1; }
+	100%{ transform: scale(1.5); opacity: 0; }
+}
+
+.b-imageSelector {
+	position:absolute;
+	bottom:10px;
+	z-index: 100;
+	width:100%;
+}
+.b-imageSelector ul {
+	margin:0;
+	padding:0;
+	list-style:none;
+	text-align: center;
+}
+.b-imageSelector ul li {
+	display: inline-block;
+}
+.b-imageSelector__button {
+	opacity:0.7;
+	color:blue;
+	background:skyblue;
+	border:solid 4px blue;
+	border-radius:50%;
+	font-weight: bold;
+	width:40px;
+	height:40px;
+	line-height:40px;
+	cursor:pointer;
+	margin:0 .3em;
+}
+.b-imageSelector__button:hover {
+	opacity: 1;
+}
+.b-transitionSelector {
+	margin-top:20px;
+	text-align: center;
+	padding:10px 20px;
+	background:rgba(255,255,255,0.5);
+	margin-bottom:20px;
+}
+.b-transitionSelector__type {
+	border-right:solid 1px #333;
+	margin-right:1em;
+	padding-right:1em;
+	list-style: none;
+	display: inline;
+	text-decoration: underline;
+	color:#333;
+	cursor:pointer;
+}
+.b-transitionSelector__type:hover {
+	color:#555;
+}
+.b-transitionSelector__type:last-child {
+	border-right:0;
+	margin-right:0;
+	padding-right:0;
+}
+		</style>
+	</head>
+	<body>
+	<header>
+		<h1>Sliding Image Panels with CSS3</h1>
+		<ul>
+			<li><a href="http://tympanus.net/codrops/2012/01/17/sliding-image-panels-with-css3/" target="_blank">Blur Menu with CSS3 Transitions</a></li>
+			<li><a href="http://publicdomainarchive.com/public-domain-images-spring-time-tree-white-blossoms-wooden-bench-outdoors/">Public Domain Images – Spring Time Tree White Blossoms Wooden Bench Outdoors</a></li>
+		</ul>
+	</header>
+
+	<section class="b-slideMenu b-slideMenu_transition_type1">
+		<div class="b-slideMenu__stage b-slideMenu__stage_slide_slide1">
+			<div class="b-slideMenu__title b-slideMenu__title_header1">
+				<h2>Type1 left to right</h2>
+				<p><a href="http://www.freestockphotos.biz/stockphoto/5625" target="_blank">original image</a></p>
+			</div>
+			<div class="b-slideMenu__title b-slideMenu__title_header2">
+				<h2>Type2 odd/even slide to left/right</h2>
+				<p><a href="http://www.freestockphotos.biz/stockphoto/7164" target="_blank">original image</a></p>
+			</div>
+			<div class="b-slideMenu__title b-slideMenu__title_header3">
+				<h2>Type3 odd/even slide up/down</h2>
+				<p><a href="http://www.freestockphotos.biz/stockphoto/8101" target="_blank">original image</a></p>
+			</div>
+			<div class="b-slideMenu__title b-slideMenu__title_header4">
+				<h2>Type4 scale up/down</h2>
+				<p><a href="http://www.freestockphotos.biz/stockphoto/7301" target="_blank">original image</a></p>
+			</div>
+
+			<ul>
+				<li>
+					<span class="b-slideMenu__slice"></span>
+					<span class="b-slideMenu__slice"></span>
+					<span class="b-slideMenu__slice"></span>
+					<span class="b-slideMenu__slice"></span>
+				</li>
+				<li>
+					<span class="b-slideMenu__slice"></span>
+					<span class="b-slideMenu__slice"></span>
+					<span class="b-slideMenu__slice"></span>
+					<span class="b-slideMenu__slice"></span>
+				</li>
+				<li>
+					<span class="b-slideMenu__slice"></span>
+					<span class="b-slideMenu__slice"></span>
+					<span class="b-slideMenu__slice"></span>
+					<span class="b-slideMenu__slice"></span>
+				</li>
+				<li>
+					<span class="b-slideMenu__slice"></span>
+					<span class="b-slideMenu__slice"></span>
+					<span class="b-slideMenu__slice"></span>
+					<span class="b-slideMenu__slice"></span>
+				</li>
+			</ul>
+		</div>
+
+		<nav class="b-imageSelector">
+			<ul>
+				<li id="sel1" class="b-imageSelector__button">1</li>
+				<li id="sel2" class="b-imageSelector__button">2</li>
+				<li id="sel3" class="b-imageSelector__button">3</li>
+				<li id="sel4" class="b-imageSelector__button">4</li>
+			</ul>
+		</nav>
+
+	</section>
+
+	<nav class="b-transitionSelector">
+		<ul>
+			<li id="transition1" class="b-transitionSelector__type">type1</li>
+			<li id="transition2" class="b-transitionSelector__type">type2</li>
+			<li id="transition3" class="b-transitionSelector__type">type3</li>
+			<li id="transition4" class="b-transitionSelector__type">type4</li>
+		</ul>
+	</nav>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script>
+
+$(function() {
+	$("#sel1").on("click", function() {
+		var e = $(".b-slideMenu__stage");
+		e.addClass("b-slideMenu__stage_slide_slide1");
+		e.removeClass("b-slideMenu__stage_slide_slide2");
+		e.removeClass("b-slideMenu__stage_slide_slide3");
+		e.removeClass("b-slideMenu__stage_slide_slide4");
+	});
+	$("#sel2").on("click", function() {
+		var e = $(".b-slideMenu__stage");
+		e.addClass("b-slideMenu__stage_slide_slide2");
+		e.removeClass("b-slideMenu__stage_slide_slide1");
+		e.removeClass("b-slideMenu__stage_slide_slide3");
+		e.removeClass("b-slideMenu__stage_slide_slide4");
+	});
+	$("#sel3").on("click", function() {
+		var e = $(".b-slideMenu__stage");
+		e.addClass("b-slideMenu__stage_slide_slide3");
+		e.removeClass("b-slideMenu__stage_slide_slide1");
+		e.removeClass("b-slideMenu__stage_slide_slide2");
+		e.removeClass("b-slideMenu__stage_slide_slide4");
+	});
+	$("#sel4").on("click", function() {
+		var e = $(".b-slideMenu__stage");
+		e.addClass("b-slideMenu__stage_slide_slide4");
+		e.removeClass("b-slideMenu__stage_slide_slide1");
+		e.removeClass("b-slideMenu__stage_slide_slide2");
+		e.removeClass("b-slideMenu__stage_slide_slide3");
+	});
+	$("#transition1").on("click", function() {
+		var e = $(".b-slideMenu");
+		e.attr("class", "b-slideMenu b-slideMenu_transition_type1");
+	});
+	$("#transition2").on("click", function() {
+		var e = $(".b-slideMenu");
+		e.attr("class", "b-slideMenu b-slideMenu_transition_type2");
+	});
+	$("#transition3").on("click", function() {
+		var e = $(".b-slideMenu");
+		e.attr("class", "b-slideMenu b-slideMenu_transition_type3");
+	});
+	$("#transition4").on("click", function() {
+		var e = $(".b-slideMenu");
+		e.attr("class", "b-slideMenu b-slideMenu_transition_type4");
+	});
+});
+
+	</script>
+	</body>
+</html>
