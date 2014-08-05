@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>html5 experiment "blur menu"</title>
+<style type="text/css">
+
+/* https://www.google.com/fonts/specimen/Lobster */
+@import url(http://fonts.googleapis.com/css?family=Lobster);
+
+/* https://www.google.com/fonts/specimen/Audiowide */
+	@import url(http://fonts.googleapis.com/css?family=Audiowide);
+
+@import url(http://fonts.googleapis.com/css?family=Chewy);
+
+body {
+}
+header {
+}
+a {
+	color:#333;
+}
+a:hover {
+	color:#555;
+}
+h1 {
+	margin:0 0 8px;
+}
+header ul {
+	font-size:12px;
+	list-style:none;
+}
+.g-webfonts__paragraph {
+	font-size:100px;
+	width:60%;
+	margin:2em auto;
+	padding:0 60px;
+}
+.g-webfonts__paragraph_face_type1 {
+	font-family: 'Lobster', cursive;
+	color: #ff0042;
+	text-shadow: 0px 0px 0 rgb(235,235,235),1px 1px 0 rgb(228,228,228),2px 2px 0 rgb(222,222,222),3px 3px 0 rgb(215,215,215),4px 4px 0 rgb(209,209,209), 5px 5px 0 rgb(203,203,203),6px 6px 5px rgba(0,0,0,0.25),6px 6px 1px rgba(0,0,0,0.5);
+}
+.g-webfonts__paragraph_face_type2 {
+	color: #ffba16;
+	font-family: 'Audiowide', cursive;
+	-moz-transform: skew(-25deg) rotate(5deg);
+	-ms-transform: skew(-25deg) rotate(5deg);
+	-webkit-transform: skew(-25deg) rotate(5deg);
+	transform: skew(-25deg) rotate(5deg);
+	-webkit-text-stroke: 0.5px #ffcf5d;
+	text-shadow: 0 1px #ff9b0d, 1px 0 #f79100, 1px 2px #ff9b0d, 2px 1px #f79100, 2px 3px #ff9b0d, 3px 2px #f79100, 3px 4px #ff9b0d, 4px 3px #f79100, 4px 5px #ff9b0d, 5px 6px #f79100, 6px 7px 5px #ff9b0d;
+}
+.g-webfonts__paragraph_face_type2 i {
+	display: block;
+	margin-top:60px;
+	text-transform: uppercase;
+}
+.g-webfonts__paragraph_face_type2 span:nth-child(4n) {
+	color: #ff539f;
+	text-shadow: 0 1px #f7046f, 1px 0 #e50568, 1px 2px #f7046f, 2px 1px #e50568, 2px 3px #f7046f, 3px 2px #e50568, 3px 4px #f7046f, 4px 3px #e50568, 4px 5px #f7046f, 5px 6px #e50568, 6px 7px 5px #f7046f;
+	-webkit-text-stroke: 0.5px #ff9cc8;
+}
+
+.g-webfonts__paragraph_face_type2 span:nth-child(4n+1) {
+	color: #19a0ee;
+	text-shadow: 0 1px #0096ec, 1px 0 #0087d4, 1px 2px #0096ec, 2px 1px #0087d4, 2px 3px #0096ec, 3px 2px #0087d4, 3px 4px #0096ec, 4px 3px #0087d4, 4px 5px #0096ec, 5px 6px #0087d4, 6px 7px 5px #0096ec;
+	-webkit-text-stroke: 0.5px #68c8ff;
+}
+
+.g-webfonts__paragraph_face_type2 span:nth-child(4n+2) {
+	color: #07ed1c;
+	text-shadow: 0 1px #02d315, 1px 0 #00bb12, 1px 2px #02d315, 2px 1px #00bb12, 2px 3px #02d315, 3px 2px #00bb12, 3px 4px #02d315, 4px 3px #00bb12, 4px 5px #02d315, 5px 6px #00bb12, 6px 7px 5px #02d315;
+	-webkit-text-stroke: 0.5px #5efd6d;
+}
+.g-webfonts__paragraph_face_type3 {
+  color: #37bcf2;
+  font-family: 'Chewy', cursive;
+  font-style: italic;
+  text-shadow: 3px 3px 0 #fff, 6px 6px 0 #febdbd;
+}
+
+.g-webfonts__paragraph_face_type3 span{
+  color: #06d9a5;
+}
+.g-webfonts__paragraph_face_type3 span span{
+  color: #d90673;
+}
+
+</style>
+</head>
+	<body>
+	<header>
+		<h1>CSS3 web-font experiment</h1>
+		<ul>
+			<li><a href="http://typesquare.com/sample/csseffect/" target="_blank">CSSサンプル集@TypeSquare</a></li>
+		</ul>
+	</header>
+	<section class="g-section">
+		<div class="g-webfonts">
+			<p class="g-webfonts__paragraph g-webfonts__paragraph_face_type1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, porro.</p>
+			<p class="g-webfonts__paragraph g-webfonts__paragraph_face_type2"><span>Adipisci</span> <span>iure</span> <span>cupiditate</span> <span>voluptas</span> <span>atque</span> <span>culpa,</span> <i><span>consequatur</span> <span>placeat</span> <span>expedita</span> <span>modi.</span></i></p>
+			<p class="g-webfonts__paragraph g-webfonts__paragraph_face_type3">Veniam quaerat <span>eius</span> aut ab <span>cumque<span>?</span></span> <span>Officia</span> totam dignissimos incidunt.</p>
+			<p class="g-webfonts__paragraph">Dignissimos ab voluptatem recusandae beatae modi odio dolorem cum eius.</p>
+			<p class="g-webfonts__paragraph">Veritatis modi porro natus vitae, voluptas iste vero inventore maiores.</p>
+			<p class="g-webfonts__paragraph">Sed atque, laboriosam possimus est quasi nemo quam totam. Quo.</p>
+			<p class="g-webfonts__paragraph">Animi nemo, corporis vero tempore quibusdam porro! Nisi, quibusdam, et!</p>
+			<p class="g-webfonts__paragraph">Cupiditate itaque explicabo inventore distinctio. Est cupiditate, dolorem corporis ratione.</p>
+			<p class="g-webfonts__paragraph">Mollitia ipsa repudiandae rerum rem magni iure necessitatibus dignissimos unde.</p>
+			<p class="g-webfonts__paragraph">Quae dolorum est aliquid laudantium, labore aspernatur at voluptate ea!</p>
+			<p class="g-webfonts__paragraph">Beatae quidem maiores nesciunt laudantium est facere vitae magnam, nam.</p>
+			<p class="g-webfonts__paragraph">Repellat quia aliquid tempora, dolorem ipsam iure, nobis praesentium culpa.</p>
+			<p class="g-webfonts__paragraph">Totam beatae, ea cum. Illum aspernatur magni quia sequi! Tenetur!</p>
+			<p class="g-webfonts__paragraph">Libero tempora optio voluptate asperiores odio iusto tenetur officia rerum.</p>
+			<p class="g-webfonts__paragraph">A error autem odit voluptas qui voluptatum nihil repudiandae ipsum?</p>
+			<p class="g-webfonts__paragraph">Vel reprehenderit dignissimos beatae fugit accusamus provident nulla itaque cum.</p>
+		</div>
+	</section>
+	</body>
+</html>
