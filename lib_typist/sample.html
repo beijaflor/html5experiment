@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>Typist sample</title>
+	<style>
+		@keyframes blink {
+		  0% { opacity: 1.0; }
+		  50% { opacity: 0.0; }
+		  100% { opacity: 1.0; }
+		}
+
+		@-webkit-keyframes blink {
+		  0% { opacity: 1.0; }
+		  50% { opacity: 0.0; }
+		  100% { opacity: 1.0; }
+		}
+
+		#typist-element:after {
+		    content: " ";
+		    display: inline-block;
+		    height: 1.2em;
+		    vertical-align: baseline;
+		    position: relative;
+		    top: 0.2em;
+		    margin-left: 3px;
+		    margin-right: 7px;
+		    width: 1px;
+		    background: #333;
+		    animation: blink 1s step-start 0s infinite;
+		    -webkit-animation: blink 1s step-start 0s infinite;
+		}
+
+		.selectedText {
+		  font-style: normal;
+		  background: #ccc;
+		}
+	</style>
+	<script src="bower_components/Typist/dist/typist.js"></script>
+</head>
+<body>
+	<section>
+		<h1>example</h1>
+		<p>
+			JavaScript is <strong id="typist-element" data-typist="ugly,not as good an CoffeeScript" data-typist-suffix="since it's JS">great</strong>
+		</p>
+	</section>
+	<aside>[positionly/Typist @ GitHub](https://github.com/positionly/Typist)</aside>
+	<script>
+
+window.onload = function() {
+		var typist;
+
+		typist = document.querySelector("#typist-element");
+
+		new Typist(typist, {
+		  letterInterval: 60,
+		  textInterval: 3000,
+		  onSlide: function(text, options) {
+		    var suffix;
+		    suffix = options.typist.getAttribute("data-typist-suffix");
+		    return console.log("" + text + " " + suffix);
+		  }
+		});
+}
+	</script>
+</body>
+</html>
