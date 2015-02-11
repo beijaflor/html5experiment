@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>Self Camera</title>
+</head>
+<body>
+	<h1>WebRTC sample</h1>
+	<video id="myVideo1" width="400" height="300" autoplay="1" style="-webkit-transform: scaleX(-1);"></video>
+	<video id="myVideo2" width="400" height="300" autoplay="1" style="-webkit-transform: scalex(0.5);"></video>
+	<video id="myVideo3" width="400" height="300" autoplay="1" style="-webkit-transform: scaleY(-1);"></video>
+	<video id="myVideo4" width="400" height="300" autoplay="1" style="-webkit-filter: sepia(80%);"></video>
+
+<script type="text/javascript">
+
+navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || window.navigator.mozGetUserMedia;
+window.URL = window.URL || window.webkitURL;
+
+var video1 = document.getElementById('myVideo1');
+var video2 = document.getElementById('myVideo2');
+var video3 = document.getElementById('myVideo3');
+var video4 = document.getElementById('myVideo4');
+var localStream = null;
+navigator.getUserMedia({video: true, audio: false},
+	function(stream) {
+		console.log(stream);
+		video1.src = window.URL.createObjectURL(stream);
+		video2.src = window.URL.createObjectURL(stream);
+		video3.src = window.URL.createObjectURL(stream);
+		video4.src = window.URL.createObjectURL(stream);
+	},
+	function(err) {
+		consoe.log(err);
+	}
+);
+
+</script>
+</body>
+</html>
