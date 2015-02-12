@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>CSS SVG Gooey Menu</title>
+<style>
+.square{
+  position:absolute;
+  background:#5677fc;
+  left:50%;
+  top:50%;
+  width:100px;
+  height:100px;
+  margin-top:-50px;
+  margin-left:-50px;
+  filter:url('#blur');
+  -webkit-filter: url("#blur");
+}
+</style>
+</head>
+<body>
+<div class="square"></div>
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+	<defs>
+		<filter id="blur">
+			<feGaussianBlur in="SourceGraphic" stdDeviation="3" />
+		</filter>
+	</defs>
+</svg>
+</body>
+</html>

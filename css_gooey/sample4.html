@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>CSS SVG Gooey Menu</title>
+<style>
+@-webkit-keyframes demonstration {
+  0% {
+    -webkit-filter: blur(0) contrast(1);
+  }
+  25% {
+    -webkit-filter: blur(0) contrast(1);
+  }
+  30% {
+    -webkit-filter: blur(20px) contrast(1);
+  }
+  55% {
+    -webkit-filter: blur(20px) contrast(1);
+    -webkit-animation-timing-function: ease-in;
+  }
+  80% {
+    -webkit-filter: blur(20px) contrast(30);
+  }
+  100% {
+    -webkit-filter: blur(20px) contrast(30);
+  }
+}
+.blobs {
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background:white;
+  width:400px;
+  height:200px;
+  margin:auto;
+  -webkit-filter:blur(20px) contrast(30);
+  -webkit-animation:demonstration 10s linear infinite;
+}
+.blob{
+  position:absolute;
+  background:black;
+  left:50%;
+  top:50%;
+  width:100px;
+  height:100px;
+  margin-top:-50px;
+  margin-left:-50px;
+  border-radius:100%;
+}
+@-webkit-keyframes blob-anim-left {
+  0% {
+    -webkit-transform:translateX(-10px);
+  }
+  100% {
+    -webkit-transform:translateX(-55px);
+  }
+}
+.blob:first-child {
+  -webkit-animation:blob-anim-left ease-in-out 0.8s infinite alternate;
+}
+@-webkit-keyframes blob-anim-right {
+  0% {
+    -webkit-transform:translateX(10px);
+  }
+  100% {
+    -webkit-transform:translateX(55px);
+  }
+}
+.blob:last-child {
+  -webkit-animation:blob-anim-right ease-in-out 0.8s infinite alternate;
+}
+</style>
+</head>
+<body>
+<div class="help"></div>
+<div class="blobs">
+  <div class="blob"></div>
+  <div class="blob"></div>
+</div>
+
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <defs>
+    <filter id="drop-shadow">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="shadow" />
+      <feOffset in="shadow" dx="3" dy="4" result="shadow" />
+      <feColorMatrix in="shadow" mode="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.6 0" result="shadow" />
+      <feBlend in="SourceGraphic" in2="shadow" />
+    </filter>
+  </defs>
+</svg>
+</body>
+</html>
